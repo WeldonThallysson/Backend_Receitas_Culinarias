@@ -1,0 +1,21 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: receitas_mysql
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: teste_receitas_rg_sistemas
+      MYSQL_USER: receitas_user
+      MYSQL_PASSWORD: receitas123
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/script.sql:/docker-entrypoint-initdb.d/script.sql
+
+volumes:
+  mysql_data:
