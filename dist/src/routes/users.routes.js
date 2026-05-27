@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.usersRoutes = void 0;
+const express_1 = require("express");
+const list_users_controller_1 = require("../controllers/users/list-users.controller");
+const find_users_controller_1 = require("../controllers/users/find-users.controller");
+const update_users_controller_1 = require("../controllers/users/update-users.controller");
+const delete_users_controller_1 = require("../controllers/users/delete-users.controller");
+const auth_middleware_1 = require("../middlewares/auth.middleware");
+const validation_middleware_1 = require("../middlewares/validation.middleware");
+const users_fields_1 = require("../validations/users/users.fields");
+const usersRoutes = (0, express_1.Router)();
+exports.usersRoutes = usersRoutes;
+usersRoutes.get('/', auth_middleware_1.requireAuth, new list_users_controller_1.ListUsersController().handle);
+usersRoutes.get('/:id', auth_middleware_1.requireAuth, new find_users_controller_1.FindUsersController().handle);
+usersRoutes.put('/:id', auth_middleware_1.requireAuth, (0, validation_middleware_1.validateFields)(users_fields_1.usersFields), new update_users_controller_1.UpdateUsersController().handle);
+usersRoutes.delete('/:id', auth_middleware_1.requireAuth, new delete_users_controller_1.DeleteUsersController().handle);

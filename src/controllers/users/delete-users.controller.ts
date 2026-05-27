@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { DeleteUsersService } from "../../services/users/delete-users.service"; 
 
-class DeleteUserController {
+class DeleteUsersController {
   async handle(req: Request, res: Response) {
     const { id } = req.params;
 
@@ -13,4 +13,4 @@ class DeleteUserController {
   }
 }
 
-export { DeleteUserController };
+export { DeleteUsersController };

@@ -6,6 +6,4 @@ export interface ICreateCategories {
     name: string;
 }
 
-export interface IUpdateCategories extends Partial<ICreateCategories> {
-    id?: number;
-}
+export interface IUpdateCategories extends Partial<ICreateCategories> {}

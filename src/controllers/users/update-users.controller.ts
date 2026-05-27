@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { UpdateUsersService } from "../../services/users/update-users.service";
 
-class UpdateUserController {
+class UpdateUsersController {
   async handle(req: Request, res: Response) {
     const { id } = req.params;
     const data = req.body;
@@ -14,4 +14,4 @@ class UpdateUserController {
   }
 }
 
-export { UpdateUserController };
+export { UpdateUsersController };

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "tsc --build",
     "docker:down": "docker compose down -v",
     "docker:up": "docker compose up -d",
     "docker:restart": "npm run docker:down && npm run docker:up",

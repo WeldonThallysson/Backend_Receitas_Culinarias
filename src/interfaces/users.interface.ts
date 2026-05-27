@@ -14,7 +14,5 @@ export interface ICreateUserData {
     password: string;
 }
 
-export interface IUpdateUserData extends Partial<ICreateUserData> {
-  id?: number;
-}
+export interface IUpdateUserData extends Partial<ICreateUserData> {}
 
