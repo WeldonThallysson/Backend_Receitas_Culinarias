@@ -1,4 +1,4 @@
-# RG Receitas Culinárias - Backend API
+# Receitas Culinárias - Backend API
 
 API REST desenvolvida com Node.js, TypeScript, Express, Prisma ORM e MySQL para gerenciamento de receitas culinárias.
 
