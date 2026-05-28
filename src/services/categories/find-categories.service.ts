@@ -1,5 +1,6 @@
 import { AppError } from "../../errors/app-error";
 import { IApiParams } from "../../interfaces/api.interface";
+import { categoryMapper } from "../../mappers/category.mapper";
 import { CategoryRepository } from "../../repositories/category.repository";
 
 class FindCategoriesService {
@@ -12,7 +13,7 @@ class FindCategoriesService {
       throw new AppError("Categoria não encontrada", 404);
     }
 
-    return category;
+    return categoryMapper(category);
   }
 }
 

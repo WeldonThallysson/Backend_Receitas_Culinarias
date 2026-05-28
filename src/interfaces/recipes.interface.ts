@@ -10,7 +10,7 @@ export interface IParamsRecipeFilters {
 
 export interface ICreateRecipe {
   user_id: number;
-  category_id?: number;
+  category_id: number;
   name?: string;
   preparation_time_minutes?: number;
   servings?: number;

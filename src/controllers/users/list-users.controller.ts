@@ -6,7 +6,6 @@ class ListUsersController {
     const filters = req.query;
 
     const service = new ListUsersService();
-
     const result = await service.execute(filters);
 
     return res.status(200).json(result);

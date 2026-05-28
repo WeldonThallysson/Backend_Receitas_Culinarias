@@ -6,7 +6,6 @@ class FindRecipesController {
     const { id } = req.params;
 
     const service = new FindRecipesService();
-
     const result = await service.execute({
       id: Number(id)
     });

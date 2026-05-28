@@ -7,7 +7,6 @@ class UpdateUsersController {
     const data = req.body;
 
     const service = new UpdateUsersService();
-
     const result = await service.execute(Number(id), data);
 
     return res.status(200).json(result);

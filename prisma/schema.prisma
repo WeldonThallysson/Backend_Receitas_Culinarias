@@ -30,6 +30,7 @@ model receitas {
   @@index([id_categorias], map: "fk_receitas_2_idx")
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model usuarios {
   id          Int        @id @default(autoincrement()) @db.UnsignedInt
   nome        String?    @db.VarChar(100)

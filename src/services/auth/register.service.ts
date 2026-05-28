@@ -1,13 +1,15 @@
+import { hash } from "bcryptjs";
 import { AppError } from "../../errors/app-error";
 import { ICreateUserData } from "../../interfaces/users.interface";
 import { UserRepository } from "../../repositories/user.repository";
+import { normalizeCharacter } from "../../utils/normalizers/character";
 import { isValidEmail, isValidCPF } from "../../utils/validators";
 
 class RegisterService {
+  constructor(private userRepository = new UserRepository()) {}
   async execute({ name, login, password }: ICreateUserData) {
-    const userRepository = new UserRepository();
 
-    const normalizedLogin = login.trim().toLowerCase();
+    let normalizedLogin = login.trim().toLowerCase();
 
     const emailValidated = isValidEmail(normalizedLogin);
     const cpfValidated = isValidCPF(normalizedLogin);
@@ -16,19 +18,24 @@ class RegisterService {
       throw new AppError("Login deve ser um e-mail ou CPF válido", 400);
     }
 
-    const existingUser = await userRepository.findByLogin({
+    if(normalizedLogin && cpfValidated){
+      normalizedLogin = normalizeCharacter(normalizedLogin);
+    }
+
+    const existingUser = await this.userRepository.findByLogin({
       login: normalizedLogin,
     });
 
     if (existingUser) {
       throw new AppError("Login já está em uso", 400);
     }
+    const passwordHash = await hash(password, 10);
 
     try {
-      await userRepository.create({
+      await this.userRepository.create({
         name,
         login: normalizedLogin,
-        password,
+        password: passwordHash,
       });
 
       return {

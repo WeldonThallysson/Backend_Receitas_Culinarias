@@ -1,5 +1,6 @@
 import { AppError } from "../../errors/app-error";
 import { IApiParams } from "../../interfaces/api.interface";
+import { recipeMapper } from "../../mappers/recipe.mapper";
 import { RecipeRepository } from "../../repositories/recipe.repository";
 
 class FindRecipesService {
@@ -12,7 +13,7 @@ class FindRecipesService {
       throw new AppError("Receita não encontrada", 404);
     }
 
-    return recipe;
+    return recipeMapper(recipe);
   }
 }
 

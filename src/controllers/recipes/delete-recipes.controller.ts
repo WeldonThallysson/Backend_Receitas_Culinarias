@@ -6,7 +6,6 @@ class DeleteRecipesController {
     const { id } = req.params;
 
     const service = new DeleteRecipesService();
-
     const result = await service.execute({
       id: Number(id)
     });

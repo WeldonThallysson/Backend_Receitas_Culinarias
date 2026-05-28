@@ -1,5 +1,6 @@
 import { AppError } from "../../errors/app-error";
 import { IApiParams } from "../../interfaces/api.interface";
+import { userMapper } from "../../mappers/users.mapper";
 import { UserRepository } from "../../repositories/user.repository";
 
 class FindUsersService {
@@ -12,7 +13,7 @@ class FindUsersService {
       throw new AppError("Usuário não encontrado", 404);
     }
 
-    return user;
+    return userMapper(user);
   }
 }
 
