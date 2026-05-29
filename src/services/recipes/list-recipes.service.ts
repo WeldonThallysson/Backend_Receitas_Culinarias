@@ -9,7 +9,15 @@ class ListRecipesService {
     const result = await this.recipeRepository.findAll(filters);
     
     return {
-      items: result.items.map(recipeMapper),
+      items: result.items.map((item) => {
+        return {
+          ...recipeMapper(item),
+          category: {
+            id: item?.categorias?.id,
+            name: item?.categorias?.nome
+          }
+        }
+      }),
       total: result.total,
     };
   }

@@ -19,9 +19,9 @@ class RecipeRepository {
             },
         });
     }
-    async findById({ id }) {
+    async findById({ id, user_id }) {
         return client_1.default.receitas.findUnique({
-            where: { id },
+            where: { id, id_usuarios: user_id },
             include: {
                 usuarios: {
                     select: {
