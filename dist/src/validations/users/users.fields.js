@@ -4,5 +4,4 @@ exports.usersFields = void 0;
 exports.usersFields = {
     name: true,
     login: true,
-    password: true,
 };
