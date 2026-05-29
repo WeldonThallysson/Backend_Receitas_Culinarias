@@ -20,9 +20,9 @@ describe("UpdateRecipesService", () => {
       user_id: 1,
       category_id: 1,
       name: "Pizza",
-      preparation_method: "mix",
+      preparationMethod: "mix",
       ingredients: "cheese",
-      preparation_time_minutes: 30,
+      preparationTimeMinutes: 30,
       servings: 2,
     });
 

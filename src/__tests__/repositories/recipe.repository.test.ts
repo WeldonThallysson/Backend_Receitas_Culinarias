@@ -28,9 +28,9 @@ describe("RecipeRepository", () => {
       user_id: 1,
       category_id: 2,
       name: "Lasagna",
-      preparation_time_minutes: 40,
+      preparationTimeMinutes: 40,
       servings: 4,
-      preparation_method: "bake",
+      preparationMethod: "bake",
       ingredients: "pasta",
     });
 

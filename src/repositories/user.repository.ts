@@ -102,8 +102,9 @@ class UserRepository {
     const data = {
       login,
       nome: name,
-      senha: password,
+      ...(password && {senha: password})
     };
+    
     return prismaClient.usuarios.update({
       where: { id },
       data,

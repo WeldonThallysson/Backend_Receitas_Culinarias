@@ -16,9 +16,9 @@ describe("CreateRecipesService", () => {
             user_id: 1,
             category_id: 1,
             name: "Pizza",
-            preparation_time_minutes: 30,
+            preparationTimeMinutes: 30,
             servings: 2,
-            preparation_method: "mix",
+            preparationMethod: "mix",
             ingredients: "cheese",
         });
         expect(repo.create).toHaveBeenCalled();
