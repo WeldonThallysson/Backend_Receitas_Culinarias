@@ -81,7 +81,7 @@ class UserRepository {
         const data = {
             login,
             nome: name,
-            senha: password,
+            ...(password && { senha: password })
         };
         return client_1.default.usuarios.update({
             where: { id },

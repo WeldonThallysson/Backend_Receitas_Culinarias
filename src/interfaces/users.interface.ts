@@ -21,4 +21,7 @@ export interface IUserDb {
   alterado_em: Date | null;
 }
 
-export interface IUpdateUserData extends Partial<ICreateUserData> {}
+export interface IUpdateUserData extends Partial<ICreateUserData> {
+  
+  password?: string;
+}
