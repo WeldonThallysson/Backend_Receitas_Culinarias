@@ -5,8 +5,8 @@ import { RecipeRepository } from "../../repositories/recipe.repository";
 class DeleteRecipesService {
   constructor(private recipeRepository = new RecipeRepository()) {}
 
-  async execute({id}: IApiParams) {
-    const recipe = await this.recipeRepository.findById({ id });
+  async execute({id, user_id}: IApiParams) {
+    const recipe = await this.recipeRepository.findById({ id, user_id });
 
     if (!recipe) {
       throw new AppError("Receita não encontrada", 404);
