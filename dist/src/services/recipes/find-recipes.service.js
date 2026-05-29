@@ -8,12 +8,18 @@ class FindRecipesService {
     constructor(recipeRepository = new recipe_repository_1.RecipeRepository()) {
         this.recipeRepository = recipeRepository;
     }
-    async execute({ id }) {
-        const recipe = await this.recipeRepository.findById({ id });
+    async execute({ id, user_id }) {
+        const recipe = await this.recipeRepository.findById({ id, user_id });
         if (!recipe) {
             throw new app_error_1.AppError("Receita não encontrada", 404);
         }
-        return (0, recipe_mapper_1.recipeMapper)(recipe);
+        return {
+            ...(0, recipe_mapper_1.recipeMapper)(recipe),
+            category: {
+                id: recipe.categorias?.id,
+                name: recipe.categorias?.nome
+            }
+        };
     }
 }
 exports.FindRecipesService = FindRecipesService;

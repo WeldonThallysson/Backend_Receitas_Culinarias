@@ -21,9 +21,9 @@ class RecipeRepository {
     });
   }
 
-  async findById({ id }: IApiParams) {
+  async findById({ id, user_id }: IApiParams) {
     return prismaClient.receitas.findUnique({
-      where: { id },
+      where: { id, id_usuarios: user_id },
 
       include: {
         usuarios: {

@@ -10,7 +10,15 @@ class ListRecipesService {
     async execute(filters) {
         const result = await this.recipeRepository.findAll(filters);
         return {
-            items: result.items.map(recipe_mapper_1.recipeMapper),
+            items: result.items.map((item) => {
+                return {
+                    ...(0, recipe_mapper_1.recipeMapper)(item),
+                    category: {
+                        id: item?.categorias?.id,
+                        name: item?.categorias?.nome
+                    }
+                };
+            }),
             total: result.total,
         };
     }

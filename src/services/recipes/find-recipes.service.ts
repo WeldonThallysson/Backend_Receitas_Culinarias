@@ -6,14 +6,20 @@ import { RecipeRepository } from "../../repositories/recipe.repository";
 class FindRecipesService {
   constructor(private recipeRepository = new RecipeRepository()) {}
 
-  async execute({id}: IApiParams) {
-    const recipe = await this.recipeRepository.findById({ id });
+  async execute({id, user_id}: IApiParams) {
+    const recipe = await this.recipeRepository.findById({ id, user_id });
 
     if (!recipe) {
       throw new AppError("Receita não encontrada", 404);
     }
 
-    return recipeMapper(recipe);
+    return {
+      ...recipeMapper(recipe),
+      category: {
+        id:  recipe.categorias?.id,
+        name: recipe.categorias?.nome
+      }
+    };
   }
 }
 

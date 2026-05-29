@@ -7,8 +7,8 @@ class DeleteRecipesService {
     constructor(recipeRepository = new recipe_repository_1.RecipeRepository()) {
         this.recipeRepository = recipeRepository;
     }
-    async execute({ id }) {
-        const recipe = await this.recipeRepository.findById({ id });
+    async execute({ id, user_id }) {
+        const recipe = await this.recipeRepository.findById({ id, user_id });
         if (!recipe) {
             throw new app_error_1.AppError("Receita não encontrada", 404);
         }
