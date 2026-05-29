@@ -8,10 +8,10 @@ class UpdateRecipesController {
     const { id } = req.params;
     const {
       name,
-      preparation_method,
+      preparationMethod,
       ingredients,
       category_id,
-      preparation_time_minutes,
+      preparationTimeMinutes,
       servings,
     } = req.body;
 
@@ -20,10 +20,10 @@ class UpdateRecipesController {
     const result = await service.execute(Number(id), {
       user_id: user_logged,
       name,
-      preparation_method,
+      preparationMethod,
       ingredients,
       category_id,
-      preparation_time_minutes,
+      preparationTimeMinutes,
       servings,
     });
 

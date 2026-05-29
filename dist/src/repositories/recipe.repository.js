@@ -12,9 +12,9 @@ class RecipeRepository {
                 id_usuarios: payload.user_id,
                 id_categorias: payload.category_id,
                 nome: payload.name,
-                tempo_preparo_minutos: payload.preparation_time_minutes,
+                tempo_preparo_minutos: payload.preparationTimeMinutes,
                 porcoes: payload.servings,
-                modo_preparo: payload.preparation_method,
+                modo_preparo: payload.preparationMethod,
                 ingredientes: payload.ingredients,
             },
         });
@@ -93,9 +93,9 @@ class RecipeRepository {
                 id_usuarios: payload.user_id,
                 id_categorias: payload.category_id,
                 nome: payload.name,
-                tempo_preparo_minutos: payload.preparation_time_minutes,
+                tempo_preparo_minutos: payload.preparationTimeMinutes,
                 porcoes: payload.servings,
-                modo_preparo: payload.preparation_method,
+                modo_preparo: payload.preparationMethod,
                 ingredientes: payload.ingredients,
             },
         });

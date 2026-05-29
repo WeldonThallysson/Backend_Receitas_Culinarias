@@ -11,7 +11,7 @@ class CreateRecipesService {
         this.categoryRepository = categoryRepository;
         this.userRepository = userRepository;
     }
-    async execute({ user_id, category_id, name, preparation_time_minutes, servings, preparation_method, ingredients, }) {
+    async execute({ user_id, category_id, name, preparationTimeMinutes, servings, preparationMethod, ingredients, }) {
         if (!name) {
             throw new app_error_1.AppError("Nome da receita é obrigatório", 400);
         }
@@ -35,9 +35,9 @@ class CreateRecipesService {
             user_id,
             category_id,
             name,
-            preparation_time_minutes,
+            preparationTimeMinutes,
             servings,
-            preparation_method,
+            preparationMethod,
             ingredients,
         });
         return {

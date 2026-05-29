@@ -12,9 +12,9 @@ export interface ICreateRecipe {
   user_id: number;
   category_id: number;
   name?: string;
-  preparation_time_minutes?: number;
+  preparationTimeMinutes?: number;
   servings?: number;
-  preparation_method: string;
+  preparationMethod: string;
   ingredients?: string;
 }
 

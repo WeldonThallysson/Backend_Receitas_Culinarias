@@ -17,9 +17,9 @@ class UpdateRecipesService {
       user_id,
       category_id,
       name,
-      preparation_time_minutes,
+      preparationTimeMinutes,
       servings,
-      preparation_method,
+      preparationMethod,
       ingredients,
     }: IUpdateRecipe,
   ) {
@@ -56,9 +56,9 @@ class UpdateRecipesService {
         user_id,
         category_id,
         name,
-        preparation_time_minutes,
+        preparationTimeMinutes,
         servings,
-        preparation_method,
+        preparationMethod,
         ingredients,
       },
     );
