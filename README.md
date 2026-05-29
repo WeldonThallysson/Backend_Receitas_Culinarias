@@ -49,26 +49,16 @@ Antes de iniciar, é necessário possuir instalado na máquina:
 
 Copie as configurações do arquivo `.env.sample` e substitua no seu `.env` atual:
 
+E para o banco de dados local mantenha apenas
 ```env
-BASE_URL="http://localhost"
-BASE_DESCRIPTION_SERVER="Servidor local"
-DATABASE_URL="mysql://receitas_user:receitas123@localhost:3306/teste_receitas_rg_sistemas" #Local
-DATABASE_USER="receitas_user"
-DATABASE_PASSWORD="receitas123"
-DATABASE_NAME="teste_receitas_rg_sistemas"
+DATABASE_URL="sua url" #Local
+DATABASE_USER="seu user"
+DATABASE_PASSWORD="sua senha"
+DATABASE_NAME="o nome do banco de dados"
 DATABASE_HOST="localhost"
 DATABASE_PORT=3306
 
-#DATABASE_URL="mysql://root:RxmXvenZVJXlKFRbZLguYRKbmwZZrusc@zephyr.proxy.rlwy.net:52197/railway" #Homolog
-#DATABASE_USER="root"
-#DATABASE_PASSWORD="RxmXvenZVJXlKFRbZLguYRKbmwZZrusc"
-#DATABASE_NAME="railway"
-#DATABASE_HOST="zephyr.proxy.rlwy.net"
-#DATABASE_PORT=52197
-
-JWT_SECRET_KEY="ELXN4Kw8cd4MIa2sftAGSAGslTl86I1rndf67gOJ5EQ"
-JWT_RESET_SECRET_KEY="9f3c2a1d8b6e4c7f9a2d1b3c5e6f7a8b"
-NODE_ENV="development"
+ 
 ```
 
 O projeto possui um script automatizado responsável por:
@@ -103,15 +93,7 @@ A aplicação iniciará localmente na porta configurada.
 
 Copie as configurações do arquivo `.env.sample` e substitua no seu `.env` atual:
 
-```env
-DATABASE_URL="mysql://root:RxmXvenZVJXlKFRbZLguYRKbmwZZrusc@zephyr.proxy.rlwy.net:52197/railway"
-DATABASE_USER="root"
-DATABASE_PASSWORD="RxmXvenZVJXlKFRbZLguYRKbmwZZrusc"
-DATABASE_NAME="railway"
-DATABASE_HOST="zephyr.proxy.rlwy.net"
-DATABASE_PORT=52197
-```
-
+Para o banco de dados em homologação é necessário pegar da referência homolog ou railway
 ---
 
 ## 2. Executar migrations no banco externo
