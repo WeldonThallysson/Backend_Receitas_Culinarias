@@ -11,7 +11,7 @@ class UpdateRecipesService {
         this.categoryRepository = categoryRepository;
         this.userRepository = userRepository;
     }
-    async execute(id, { user_id, category_id, name, preparation_time_minutes, servings, preparation_method, ingredients, }) {
+    async execute(id, { user_id, category_id, name, preparationTimeMinutes, servings, preparationMethod, ingredients, }) {
         const recipe = await this.recipeRepository.findById({ id });
         if (!recipe) {
             throw new app_error_1.AppError("Receita não encontrada", 404);
@@ -36,9 +36,9 @@ class UpdateRecipesService {
             user_id,
             category_id,
             name,
-            preparation_time_minutes,
+            preparationTimeMinutes,
             servings,
-            preparation_method,
+            preparationMethod,
             ingredients,
         });
         return {

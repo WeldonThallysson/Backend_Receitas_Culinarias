@@ -15,9 +15,9 @@ class CreateRecipesService {
     user_id,
     category_id,
     name,
-    preparation_time_minutes,
+    preparationTimeMinutes,
     servings,
-    preparation_method,
+    preparationMethod,
     ingredients,
   }: ICreateRecipe) {
     if (!name) {
@@ -49,9 +49,9 @@ class CreateRecipesService {
       user_id,
       category_id,
       name,
-      preparation_time_minutes,
+      preparationTimeMinutes,
       servings,
-      preparation_method,
+      preparationMethod,
       ingredients,
     });
 

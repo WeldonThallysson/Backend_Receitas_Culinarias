@@ -6,10 +6,10 @@ class CreateRecipesController {
     const user_logged = req.user_id;
     const {
       name,
-      preparation_method,
+      preparationMethod,
       ingredients,
       category_id,
-      preparation_time_minutes,
+      preparationTimeMinutes,
       servings,
     } = req.body;
 
@@ -18,10 +18,10 @@ class CreateRecipesController {
     const result = await service.execute({
       user_id: user_logged,
       name,
-      preparation_method,
+      preparationMethod,
       ingredients,
       category_id,
-      preparation_time_minutes,
+      preparationTimeMinutes,
       servings,
     });
 
