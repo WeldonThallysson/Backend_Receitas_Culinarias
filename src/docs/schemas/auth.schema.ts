@@ -120,7 +120,7 @@
  *
  *                 token:
  *                   type: string
- *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdGVzMyIsImlhdCI6MTc4MDA2MzM0OCwiZXhwIjoxNzgwMTQ5NzQ4LCJzdWIiOiIyIn0.6wxNTY_g18PpRygvSfwRJjF9TLLIgBlmdA8MmCCMNkY
  *
  *                 message:
  *                   type: string

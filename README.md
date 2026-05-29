@@ -1,5 +1,4 @@
 # Receitas Culinárias - Backend API
-
 API REST desenvolvida com Node.js, TypeScript, Express, Prisma ORM e MySQL para gerenciamento de receitas culinárias.
 
 ---
@@ -15,9 +14,19 @@ API REST desenvolvida com Node.js, TypeScript, Express, Prisma ORM e MySQL para 
 - Swagger
 - Jest
 - JWT
+
 ---
 
-# Requisitos para execução local
+# Visão geral de execução do projeto
+
+O projeto pode ser executado de duas formas:
+
+- Ambiente local utilizando Docker (setup automatizado)
+- Ambiente com banco de dados externo (homologação ou produção)
+
+---
+
+# Requisitos para execução local (Docker)
 
 Antes de iniciar, é necessário possuir instalado na máquina:
 
@@ -28,7 +37,15 @@ Antes de iniciar, é necessário possuir instalado na máquina:
 
 ---
 
-# Configuração do ambiente
+# Requisitos para execução com banco externo
+
+- Node.js
+- NPM
+- Banco de dados MySQL/MariaDB externo configurado (ex: Railway, Render, etc)
+
+---
+
+# Configuração do ambiente (Docker - local)
 
 O projeto possui um script automatizado responsável por:
 
@@ -42,13 +59,11 @@ Execute o comando abaixo:
 
 ```bash
 npm run setup
-```
-
-Este processo pode levar alguns segundos até que o banco finalize sua inicialização.
+````
 
 ---
 
-# Executando a aplicação
+# Executando a aplicação (Docker - local)
 
 Após finalizar a configuração do ambiente, execute:
 
@@ -59,9 +74,52 @@ npm run dev
 A aplicação iniciará localmente na porta configurada.
 
 ---
-# Executando os testes 
 
-Para executar os testes unitários, execute:
+# Configuração do ambiente (banco externo - homologação/produção)
+
+## 1. Configurar arquivo .env
+
+Copie as configurações do arquivo `.env.sample` e substitua no seu `.env` atual:
+
+```env
+DATABASE_URL="mysql://root:RxmXvenZVJXlKFRbZLguYRKbmwZZrusc@zephyr.proxy.rlwy.net:52197/railway"
+DATABASE_USER="root"
+DATABASE_PASSWORD="RxmXvenZVJXlKFRbZLguYRKbmwZZrusc"
+DATABASE_NAME="railway"
+DATABASE_HOST="zephyr.proxy.rlwy.net"
+DATABASE_PORT=52197
+```
+
+---
+
+## 2. Executar migrations no banco externo
+
+```bash
+npx prisma migrate deploy
+```
+
+---
+
+## 3. Executar aplicação
+
+### Modo produção
+
+```bash
+npm run build
+npm start
+```
+
+### Modo desenvolvimento
+
+```bash
+npm run dev
+```
+
+---
+
+# Executando os testes
+
+Para executar os testes unitários:
 
 ```bash
 npm run test
@@ -89,28 +147,28 @@ http://localhost:3000/docs
 
 No Swagger será possível:
 
-- Visualizar todas as rotas
-- Testar endpoints
-- Consultar parâmetros
-- Ver exemplos de request e response
-- Utilizar autenticação Bearer Token
+* Visualizar todas as rotas
+* Testar endpoints
+* Consultar parâmetros
+* Ver exemplos de request e response
+* Utilizar autenticação Bearer Token
 
 ---
 
 # Scripts disponíveis
 
-| Comando | Descrição |
-|---|---|
-| npm run setup | Configura todo o ambiente automaticamente |
-| npm run dev | Executa a aplicação em modo desenvolvimento |
-| npm run build | Gera build da aplicação |
-| npm run start | Executa aplicação em produção |
-| npm run docker:up | Inicializa containers Docker |
-| npm run docker:down | Remove containers Docker |
-| npm run docker:restart | Reinicia containers Docker |
-| npm run docker:logs | Exibe logs do container MySQL |
-| npm run prisma:sync | Sincroniza Prisma com banco de dados |
-| npm run test | Executa os testes unitários referente aos módulos do webservice | 
+| Comando                | Descrição                                 |
+| ---------------------- | ----------------------------------------- |
+| npm run setup          | Configura ambiente local com Docker       |
+| npm run dev            | Executa aplicação em modo desenvolvimento |
+| npm run build          | Gera build da aplicação                   |
+| npm run start          | Executa aplicação em produção             |
+| npm run docker:up      | Inicializa containers Docker              |
+| npm run docker:down    | Remove containers Docker                  |
+| npm run docker:restart | Reinicia containers Docker                |
+| npm run docker:logs    | Exibe logs do container MySQL             |
+| npm run prisma:sync    | Sincroniza Prisma com banco de dados      |
+| npm run test           | Executa testes unitários                  |
 
 ---
 
@@ -118,10 +176,10 @@ No Swagger será possível:
 
 A API possui os seguintes módulos:
 
-- Autenticação
-- Usuários
-- Categorias
-- Receitas
+* Autenticação
+* Usuários
+* Categorias
+* Receitas
 
 ---
 
@@ -129,37 +187,37 @@ A API possui os seguintes módulos:
 
 ## Autenticação
 
-- Cadastro de usuários
-- Login com JWT
-- Login utilizando e-mail ou CPF
-- Recuperação de senha
-- Redefinição de senha via token
-- Middleware de autenticação
+* Cadastro de usuários
+* Login com JWT
+* Login utilizando e-mail ou CPF
+* Recuperação de senha
+* Redefinição de senha via token
+* Middleware de autenticação
 
 ## Usuários
 
-- Listagem
-- Busca por ID
-- Atualização
-- Remoção
+* Listagem
+* Busca por ID
+* Atualização
+* Remoção
 
 ## Categorias
 
-- Cadastro de categorias
-- Atualização
-- Exclusão
-- Listagem
-- Busca individual
+* Cadastro de categorias
+* Atualização
+* Exclusão
+* Listagem
+* Busca individual
 
 ## Receitas
 
-- Cadastro de receitas
-- Atualização
-- Exclusão
-- Listagem
-- Busca individual
-- Associação com categorias
-- Associação com usuário autenticado
+* Cadastro de receitas
+* Atualização
+* Exclusão
+* Listagem
+* Busca individual
+* Associação com categorias
+* Associação com usuário autenticado
 
 ---
 
@@ -173,4 +231,3 @@ Também foi implementado um módulo de gerenciamento de categorias para melhor o
 
 Outro diferencial que integrei foi a documentação completa da API com Swagger, além da utilização de Docker para facilitar toda a configuração e execução do ambiente local.
 
----
