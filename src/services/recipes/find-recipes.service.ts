@@ -2,6 +2,7 @@ import { AppError } from "../../errors/app-error";
 import { IApiParams } from "../../interfaces/api.interface";
 import { recipeMapper } from "../../mappers/recipe.mapper";
 import { RecipeRepository } from "../../repositories/recipe.repository";
+import { characterCase } from "../../utils/normalizers/character";
 
 class FindRecipesService {
   constructor(private recipeRepository = new RecipeRepository()) {}
@@ -16,8 +17,8 @@ class FindRecipesService {
     return {
       ...recipeMapper(recipe),
       category: {
-        id:  recipe.categorias?.id,
-        name: recipe.categorias?.nome
+        id: recipe.categorias?.id,
+        name: characterCase(recipe?.categorias?.nome)
       }
     };
   }

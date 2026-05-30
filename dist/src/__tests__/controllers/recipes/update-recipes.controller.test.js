@@ -25,10 +25,10 @@ describe("UpdateRecipesController", () => {
             .put("/recipes/1")
             .send({
             name: "Lasanha Atualizada",
-            preparation_method: "assar",
+            preparationMethod: "assar",
             ingredients: "massa, queijo",
             category_id: 1,
-            preparation_time_minutes: 50,
+            preparationTimeMinutes: 50,
             servings: 6,
         });
         expect(response.status).toBe(200);
