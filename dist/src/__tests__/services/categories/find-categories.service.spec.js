@@ -13,13 +13,13 @@ describe("FindCategoriesService", () => {
     it("should return mapped category", async () => {
         repo.findById = jest.fn().mockResolvedValue({
             id: 1,
-            nome: "food",
+            nome: "Food",
         });
         const result = await service.execute({ id: 1 });
         expect(repo.findById).toHaveBeenCalledWith({ id: 1 });
         expect(result).toEqual({
             id: 1,
-            name: "food",
+            name: "Food",
         });
     });
     it("should throw if category not found", async () => {

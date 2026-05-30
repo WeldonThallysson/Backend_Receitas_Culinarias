@@ -4,6 +4,7 @@ exports.FindRecipesService = void 0;
 const app_error_1 = require("../../errors/app-error");
 const recipe_mapper_1 = require("../../mappers/recipe.mapper");
 const recipe_repository_1 = require("../../repositories/recipe.repository");
+const character_1 = require("../../utils/normalizers/character");
 class FindRecipesService {
     constructor(recipeRepository = new recipe_repository_1.RecipeRepository()) {
         this.recipeRepository = recipeRepository;
@@ -17,7 +18,7 @@ class FindRecipesService {
             ...(0, recipe_mapper_1.recipeMapper)(recipe),
             category: {
                 id: recipe.categorias?.id,
-                name: recipe.categorias?.nome
+                name: (0, character_1.characterCase)(recipe?.categorias?.nome)
             }
         };
     }

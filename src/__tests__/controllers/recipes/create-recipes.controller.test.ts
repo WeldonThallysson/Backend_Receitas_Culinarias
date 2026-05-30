@@ -1,7 +1,7 @@
 import request from "supertest";
 import { app } from "../../../app";
 import { CreateRecipesService } from "../../../services/recipes/create-recipes.service";
-import { NextFunction, Request } from "express";
+import { NextFunction, Request, Response } from "express";
 
 jest.mock("../../../services/recipes/create-recipes.service");
 jest.mock("../../../middlewares/auth.middleware", () => ({
@@ -25,10 +25,10 @@ describe("CreateRecipesController", () => {
       .post("/recipes")
       .send({
         name: "Lasanha",
-        preparation_method: "assar",
+        preparationMethod: "assar",
         ingredients: "massa, queijo",
         category_id: 1,
-        preparation_time_minutes: 40,
+        preparationTimeMinutes: 40,
         servings: 4,
       });
 
